@@ -8,3 +8,16 @@ Description: >
 Resources:
   S3Bucket:
     Type: AWS::S3::Bucket
+
+  HelloWorldFunction:
+    Type: AWS::Serverless::Function 
+    Properties:
+      CodeUri: Lambda/
+      Handler: app.lambda_handler
+      Runtime: python3.8
+      Events:
+        HelloWorld:
+          Type: Api
+          Properties:
+            Path: /hello
+            Method: get
